@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 관련 스타일</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        #div-bg{
+            background-color: white;
+            border: 30px dashed blue;
+            padding: 20px;
+            width: 50%;
+            /* div의 content의 가로길이는 부모(body)요소의 50%로 지정하겠다.*/
+            box-sizing : border-box;
+            /* 가로길이를 border까지 포함해서 지정하겠다 라는 뜻 */
+        }
+        .div-test{
+            margin:30px;
+            border:10px dashed;
+            padding:20px;
+            background-color: yellow;
+        }
+
+        #div1{
+            background-clip : border-box;/* 기본값 */
+        }
+        #div2{
+            background-clip: padding-box;
+        }
+        #div3{
+            background-clip:content-box;
+        }
+        #bg-img{
+            border : 1px solid black;
+            width:70%;
+            height: 800px;
+
+            background-image: url("resources/image/bono.jpg");
+            background-repeat:repeat-y;/*사진들이 세로로만 반복됨*/
+            background-size : contain;/*가로 세로 상관없이 둘중에 하나만 가득 찰때까지 크기를 맞춰줌*/
+            background-position : 50% 50%; /* center center 또는 50px 50px*/
+            background-attachment : fixed; /*스크롤이동이 있어도 그자리 그대로 고정*/
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>배경 관련 스타일(background~)</h1>
+
+    <h3>background-color : 배경색을 지정하고자 할 때 사용</h3>
+    <div id="div-bg">
+        용기가 우리 이상, 청춘을 아니한 인간의 위하여 스며들어 주며, 피다. 위하여 그들에게 이상 생생하며, 눈에 타오르고 너의 사막이다. 구할 사람은 것은 못하다 같지 이상 행복스럽고 이상 돋고, 위하여서. 얼마나 끓는 풀이 갑 그들의 많이 이것이다. 든 예가 그와 희망의 것이 어디 구하지 것이다. 찬미를 청춘을 밥을 긴지라 고동을 사막이다. 인류의 봄날의 하였으며, 영원히 우리 눈에 사라지지 아니다. 인간에 있는 오아이스도 것이다. 그들은 심장의 긴지라 것은 것은 뭇 가장 그들은 것이다. 붙잡아 인생을 너의 위하여 곳이 그들의 이것이다. 풀이 유소년에게서 전인 부패를 이상은 것이다.       
+    </div>
+
+    <br>
+
+    <h3>background-clip : 배경을 적용시키고자 하는 범위를 지정할 때 사용</h3>
+    <pre>
+        선택자 {
+            background-clip : border-box(기본값)/padding-box/content-box;
+        }
+    </pre>
+
+    <!-- .div-test#div$*3 -->
+    <div class="div-test" id="div1">
+        용기가 우리 이상, 청춘을 아니한 인간의 위하여 스며들어 주며, 피다. 위하여 그들에게 이상 생생하며, 눈에 타오르고 너의 사막이다. 구할 사람은 것은 못하다 같지 이상 행복스럽고 이상 돋고, 위하여서. 얼마나 끓는 풀이 갑 그들의 많이 이것이다. 든 예가 그와 희망의 것이 어디 구하지 것이다. 찬미를 청춘을 밥을 긴지라 고동을 사막이다. 인류의 봄날의 하였으며, 영원히 우리 눈에 사라지지 아니다. 인간에 있는 오아이스도 것이다. 그들은 심장의 긴지라 것은 것은 뭇 가장 그들은 것이다. 붙잡아 인생을 너의 위하여 곳이 그들의 이것이다. 풀이 유소년에게서 전인 부패를 이상은 것이다.
+    </div>
+   
+    <div class="div-test" id="div2">
+        용기가 우리 이상, 청춘을 아니한 인간의 위하여 스며들어 주며, 피다. 위하여 그들에게 이상 생생하며, 눈에 타오르고 너의 사막이다. 구할 사람은 것은 못하다 같지 이상 행복스럽고 이상 돋고, 위하여서. 얼마나 끓는 풀이 갑 그들의 많이 이것이다. 든 예가 그와 희망의 것이 어디 구하지 것이다. 찬미를 청춘을 밥을 긴지라 고동을 사막이다. 인류의 봄날의 하였으며, 영원히 우리 눈에 사라지지 아니다. 인간에 있는 오아이스도 것이다. 그들은 심장의 긴지라 것은 것은 뭇 가장 그들은 것이다. 붙잡아 인생을 너의 위하여 곳이 그들의 이것이다. 풀이 유소년에게서 전인 부패를 이상은 것이다.
+    </div>
+    
+    <div class="div-test" id="div3">
+        용기가 우리 이상, 청춘을 아니한 인간의 위하여 스며들어 주며, 피다. 위하여 그들에게 이상 생생하며, 눈에 타오르고 너의 사막이다. 구할 사람은 것은 못하다 같지 이상 행복스럽고 이상 돋고, 위하여서. 얼마나 끓는 풀이 갑 그들의 많이 이것이다. 든 예가 그와 희망의 것이 어디 구하지 것이다. 찬미를 청춘을 밥을 긴지라 고동을 사막이다. 인류의 봄날의 하였으며, 영원히 우리 눈에 사라지지 아니다. 인간에 있는 오아이스도 것이다. 그들은 심장의 긴지라 것은 것은 뭇 가장 그들은 것이다. 붙잡아 인생을 너의 위하여 곳이 그들의 이것이다. 풀이 유소년에게서 전인 부패를 이상은 것이다.
+    </div>
+
+    <h3>배경 이미지 테스트</h3>
+
+    <pre>
+        선택자 {
+            background-image : url(이미지경로);
+            background-repeat:repeat/repeat-x/repeat-y/no-repeat;
+            background-size : auto/contain/cover/px px/%;
+            background-position : 좌/우/가운데중1 위/아래/가운데중 1 px/% %;
+            background-attachment: scroll/fixed;
+        }
+    </pre>
+
+    <div id="bg-img"></div>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    
+</body>
+</html>
