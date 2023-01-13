@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애니메이션 관련 스타일</title>
     <style>
-        .anitest1:hover{
+        
+        #check1[type=checkbox]:checked+div{
             width: 200px;
             animation-name : ani;
             animation-duration: 4s;
@@ -26,8 +27,10 @@
                 border: 3px solid red;
             }
         }
-
-     @keyframes ani2{
+        #check2[type=checkbox]:checked+div{
+            animation: ani2 5s infinite alternate;
+        }
+        @keyframes ani2{
         0% {
             background-color: green;
             border : 3px solid black;
@@ -73,10 +76,13 @@
             선택자 {스타일;}
         }
     </pre>
-
-    <!-- .anitest$*2 -->
-    <div class="anitest1">기본 애니메이션효과 적용</div>
    
+   
+    <!-- .anitest$*2 -->
+    <input type="checkbox" id="check1">
+    <div class="anitest1">기본 애니메이션효과 적용</div>
+    
+    <input type="checkbox" id="check2">
     <div class="anitest2">이것도 적용해보기</div>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
