@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 수업내용</h1>
+    
+    <ul>
+        <li type=1><a href="">자바스크립트 개요</a>
+            <ul>   
+                <li>스크립트 개요</li>
+                <li>자바스크립트 사용법</li>
+                <li>자바스크립트 데이터 입출력</li>
+                <li>HTML태그에 접근하기</li>
+            </ul>
+        </li>
+        <li type=1><a href="">기본문법</a>
+            <ul>
+                <li>변수와 자료형</li>
+                <li>데이터 형변환</li>
+                <li>연산자</li>
+                <li>조건문과 반복문</li>
+            </ul>
+        </li>
+        <li type=1>연습문제1
+            <ul>
+                <li><a href="">책 카테고리 선택</li></a>
+                <li><a href="">간단 계산</li></a>
+                <li><a href="">회원가입</li></a>
+            </ul>
+        </li>
+    </ul>   
+       
+    
+    <h1>Practice1</h1>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" name="checkAll" value="전체선택" id="checkAll">
+            <label for="checkAll">전체선택</label>
+            
+            <input type="checkbox" name="hobby" value="종합" id="all">
+            <label for="all">종합</label>
+            
+            <input type="checkbox" name="hobby" value="소설" id="fiction">
+            <label for="fiction">소설</label>
+            
+            <input type="checkbox" name="hobby" value="시/에세이" id="essay">
+            <label for="essay">시/에세이</label>
+
+            <input type="checkbox" name="hobby" value="경제/경영" id="economy">
+            <label for="economy">경제/경영</label>
+            
+            <input type="checkbox" name="hobby" value="자기계발" id="develop">
+            <label for="develop">자기계발</label>
+            
+            <input type="checkbox" name="hobby" value="아동" id="kid">
+            <label for="kid">아동</label>
+
+            <br>
+
+            
+
+            <input type="checkbox" name="hobby" value="과학" id="science">
+            <label for="science">과학</label>
+
+            <input type="checkbox" name="hobby" value="역사/문화" id="history">
+            <label for="history">역사/문화</label>
+
+            <input type="checkbox" name="hobby" value="외국어" id="foregin">
+            <label for="foregin">외국어</label>
+
+            <input type="checkbox" name="hobby" value="컴퓨터" id="computer">
+            <label for="computer">컴퓨터</label>
+
+            <input type="checkbox" name="hobby" value="만화" id="comic">
+            <label for="comic">만화</label>
+        </fieldset>
+    </form>
+
+    <br>
+    
+    <button onclick="accessName();">카테고리 선택</button>
+    <div id="area3" class="area" style="border: 1px solid red; height: 200px;"></div>
+    
+
+    <script>        
+        function accessName(){
+            
+            let hobby = document.getElementsByName("hobby");
+           
+            let hobby2 = document.querySelectorAll("input[name=hobby]:checked");
+
+           
+		
+
+
+            let checkedItem = "";
+
+            for(let i =0; i<hobby.length; i++){
+
+                if(hobby[i].checked){
+                    checkedItem += hobby[i].value+" ";
+                }
+
+            }
+            document.getElementById("area3").innerHTML = checkedItem;
+            
+        }
+
+        
+    </script>
+</body>
+</html>
