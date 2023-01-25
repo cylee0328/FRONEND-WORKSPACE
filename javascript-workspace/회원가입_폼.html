@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입폼</title>
+</head>
+<body>
+   
+    <form accept="test.do" method="get">
+        * 아이디 : <input type="text" name="userId" id="userId"> <br>
+        <label style="font-size: 10px; color: gray;">첫글자는 반드시 영문자로, 그리고 영문자, 숫자를 포함하여 총 4~12자로 입력하시오.</label><br>
+    
+        * 비밀번호 : <input type="password" name="userPwd" id="userPwd"> <br>
+        <label style="font-size: 10px; color: gray;">영문자, 숫자, 특수문자(!@#$%^)로 총 8~15자로 입력하시오.</label><br>
+
+        * 비밀번호확인 : <input type="password" id="checkPwd"> <br>
+        <label style="font-size: 10px; color: gray;">위의 비밀번호와 일치하게 입력하시오.</label><br>
+
+        * 이름 : <input type="text" name="userName" id="userName"> <br>
+        <label style="font-size: 10px; color: gray;">한글로만 이루어져야 하며 2글자 이상으로 입력하시오.</label> <br>
+
+
+        <input type="submit" value="회원가입" onclick="return validate();">
+    </form>
+   
+    <script>
+          function validate(){
+
+            let userId = document.getElementById("userId").value;
+            let userPwd = document.getElementById("userPwd").value;
+            let checkPwd = document.getElementById("checkPwd").value;
+            let userName = document.getElementById("userName").value;
+
+            let regExp =  /^[a-zA-Z][a-zA-Z0-9]{5,11}$/;
+            let regExp2 = /^[a-zA-Z0-9!@#$%^]{8,15}$/;
+            let regExp3 = /^[ㄱ-ㅎ ㅏ-ㅣ 가-핳]{2,}$/;
+
+            if( !regExp.test(userId)){ 
+                alert("유효한 아이디가 아닙니다. 다시 입력해주세요.")
+
+                document.getElementById("userId").select();
+
+                return false;
+            }
+
+            if( !regExp2.test(userPwd)){ 
+                alert("유효한 비밀번호가 아닙니다. 다시 입력해주세요.")
+
+                document.getElementById("userPwd").select();
+
+                return false;
+            }
+
+            if(userPwd != checkPwd){
+                alert("위의 비밀번호와 일치하게 입력하시오.");
+                return false;
+            }
+         
+            if( !regExp3.test(userName)){ 
+                alert("유효한 이름이 아닙니다. 다시 입력해주세요.")
+
+                document.getElementById("userName").select();
+
+                return false;
+            }
+        
+        }    
+
+    </script>
+</body>
+</html>
