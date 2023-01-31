@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+
+        .wrap{
+            width: 1330px;
+            height: 1700px;
+            margin: auto;
+        }
+
+        .wrap>div{
+            width:100%;
+        }
+
+        #header{
+            height: 5%;
+        }
+        #content1{
+            height:20%;
+        }
+        
+        #content2{
+            height : 45%;
+        }
+        #footer{
+            height: 30%;
+        }
+
+        #header>div   {height:100%; float:left;}
+
+        #header_1{width:20%; }
+        #header_2{width:65%;}
+        #header_3{width:15%;}
+       
+        #content1_1{  height:50%; width: 100%;}
+        #content1_2{  height:25%; width:100%; }
+        #content1_3{  height:25%;  width:100%;}
+        
+        #content2_1{  height:15%; width: 100%;}
+        #content2_2{  height:60%; width:100%; }
+        #content2_3{  height:25%;  width:100%;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="header">
+            <div id="header_1">
+                <a class="header__back">
+                    <img class="header__back-icon header__back--black" src="https://www.i-nara.co.kr/img/icon/icon_left_black.svg" alt="">
+                    <img class="header__back-icon header__back--white" src="/img/icon/icon_left_white.svg" alt="">
+                    <span class="header__back-text">자주 묻는 질문</span>
+                </a>
+            </div>
+            <div id="header_2"></div>
+            <div id="header_3"></div>
+        </div>
+        
+        <div id="content1">
+            <div id="content1_1">
+                <h1>자주 묻는 질문</h1>
+            </div>
+            <div id="content1_2">
+                <h2>아이들나라에 자주 궁금한 내용을 모았습니다.</h2>
+            </div>
+            <div id="content1_3"></div>
+            
+        </div>
+        
+        <div id="content2">
+            <div id="content2_1"></div>
+            <div id="content2_2"></div>
+            <div id="content2_3"></div>
+        </div>
+        
+        <div id="footer"></div>
+
+
+    </div>
+
+
+
+</body>
+</html>
