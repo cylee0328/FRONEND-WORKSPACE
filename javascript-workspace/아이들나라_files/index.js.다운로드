@@ -1,0 +1,281 @@
+if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+  window.location = 'microsoft-edge:' + window.location;
+  setTimeout(function () {
+    window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+  }, 1);
+}
+
+let viewW = window.innerWidth;
+let viewH = window.innerHeight;
+let isMobile = viewW > 1023 ? false : true;
+let headerH = isMobile ? 72 : 120;
+
+(() => {
+  const accordion = document.querySelectorAll('.accordion');
+  accordion.forEach((el) => {
+    const items = el.querySelectorAll('.accordion .accordion__head');
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const itemToggle = item.getAttribute('aria-expanded');
+        if (el.classList.contains('accordion--one')) {
+          for (let i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+          }
+        }
+        if (itemToggle === 'false') {
+          item.setAttribute('aria-expanded', 'true');
+        } else {
+          item.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+
+  // header
+  // let scrollDir = "up";
+  let preScroll = -1;
+  let currScroll;
+
+  const setScrollDir = () => {
+    scrollDir = preScroll - currScroll > 0 ? 'up' : 'down';
+  };
+
+  const html = document.querySelector('html');
+  const header = document.querySelector('header');
+  let isHeaderNormal;
+  let isHeaderCategory;
+
+  if (window.location.pathname !== '/') {
+    html.classList.remove('h-s--dark');
+  }
+
+  const getHeaderType = () => {
+    isHeaderNormal = html.classList.value.includes('h--normal');
+    isHeaderCategory = html.classList.value.includes('h--category');
+  };
+
+  const setHeaderBg = () => {
+    const isDark = html.classList.value.includes('h-s--dark');
+    const isColor = html.classList.value.includes('h-s--color');
+
+    if (!isDark && !isColor) {
+      window.scrollY > headerH
+        ? html.classList.add('h-s--white')
+        : html.classList.remove('h-s--white');
+    }
+  };
+
+  const setHeaderHide = () => {
+    if (isHeaderNormal && scrollDir === 'up') {
+      header.classList.remove('s-hide');
+    } else if (isHeaderNormal && scrollDir === 'down') {
+      window.scrollY > headerH / 2 && header.classList.add('s-hide');
+    }
+
+    if (isHeaderCategory) {
+      let isCategoryArea = currScroll > cateTop;
+
+      if (!isCategoryArea && scrollDir === 'up') {
+        header.classList.remove('s-hide');
+      } else if (!isCategoryArea && scrollDir === 'down') {
+        window.scrollY > headerH / 2 && header.classList.add('s-hide');
+      }
+    }
+  };
+
+  // sticky (faq, event page)
+  const cateNav = document.querySelector('.horizontal--cate');
+  let cateTop = 0;
+
+  if (cateNav !== null) {
+    cateTop = cateNav.offsetTop;
+  }
+  const setCatSticky = () => {
+    let scrollTop = window.scrollY;
+
+    if (cateNav !== null) {
+      if (scrollTop > cateTop) {
+        cateNav.classList.add('s-sticky');
+      } else {
+        cateNav.classList.remove('s-sticky');
+      }
+    }
+  };
+
+  // scroll
+  window.addEventListener('scroll', () => {
+    getHeaderType();
+    let isHeaderOpen = header.classList.value.includes('s-open');
+    currScroll = window.scrollY;
+    setHeaderBg();
+    setCatSticky();
+    setScrollDir();
+    !isHeaderOpen && setHeaderHide();
+    preScroll = window.scrollY;
+  });
+
+  // 팝업, dim (로그인, 회원가입, 게시물 상세)
+  const dim = document.querySelector('.dim');
+
+  const btnFunc = document.querySelectorAll('.i-share');
+  let isOpen = false;
+
+  const hamburger = document.querySelectorAll('.hamburger');
+  const gnb = document.querySelector('.gnb');
+
+  // dim 클릭
+  const dimClick = (targetElement, el) => {
+    dim.addEventListener('click', () => {
+      isOpen = false;
+      el && el.classList.remove('s-show');
+      // bodyScrollLock.enableBodyScroll(targetElement);
+      dim.classList.remove('s-show');
+      if (gnb.classList.contains('s-open')) {
+        gnb.classList.remove('s-open');
+      }
+    });
+  };
+
+  const dimControl = (el, dimBoolean, targetElement) => {
+    if (isOpen) {
+      if (el) {
+        el.classList.remove('s-show');
+      }
+      if (dimBoolean) {
+        dim.classList.remove('s-show');
+        // bodyScrollLock.enableBodyScroll(targetElement);
+      }
+      isOpen = false;
+    } else {
+      if (el) {
+        el.classList.add('s-show');
+      }
+      if (dimBoolean) {
+        dim.classList.add('s-show');
+        // bodyScrollLock.disableBodyScroll(targetElement);
+      }
+      isOpen = true;
+    }
+  };
+
+  const menuNav = document.querySelector('.gnb__nav-box');
+  menuNav?.addEventListener('click', () => {
+    isOpen = false;
+    dim.classList.remove('s-show');
+    if (gnb.classList.contains('s-open')) {
+      gnb.classList.remove('s-open');
+    }
+  });
+
+  // gnb Open
+  hamburger.forEach((el) => {
+    el.addEventListener('click', () => {
+      gnb.classList.toggle('s-open');
+      dimControl(el, true, gnb);
+      dimClick(gnb, el);
+
+      // share
+      /*
+      btnFunc.forEach((share) => {
+        !isMobile && share.classList.remove('s-show');
+      });
+       */
+    });
+  });
+
+  const drawerOpen = document.querySelectorAll('.drawer__open');
+  const drawerClose = document.querySelectorAll('.drawer__close');
+
+  // drawer Open
+  drawerOpen.forEach((el) => {
+    el.addEventListener('click', () => {
+      const drawerFocus = el.getAttribute('data-drawer');
+      const drawer = document.querySelector(
+        `.drawer[data-drawer="${drawerFocus}"]`,
+      );
+
+      dimControl(drawer, true, drawer);
+      dimClick(drawer, drawer);
+    });
+  });
+
+  // drawer Close
+  drawerClose.forEach((el) => {
+    el.addEventListener('click', () => {
+      dimControl(el.parentNode.parentNode, true, el.parentNode.parentNode);
+    });
+  });
+
+  // share
+  /*
+  btnFunc.forEach((el) => {
+    el.addEventListener('click', () => {
+      if (!el.classList.contains('s-show')) {
+        for (let i = 0; i < btnFunc.length; i++) {
+          btnFunc[i].classList.remove('s-show');
+        }
+      }
+      el.classList.toggle('s-show');
+    });
+  });
+   */
+
+  const popupOpen = document.querySelectorAll('.popup__open');
+  const popupClose = document.querySelectorAll('.popup__close');
+  const popupAll = document.querySelectorAll('.popup');
+
+  // 팝업 Open
+  popupOpen.forEach((el) => {
+    el.addEventListener('click', () => {
+      const popupFocus = el.getAttribute('data-popup');
+      const popup = document.querySelector(
+        `.popup[data-popup="${popupFocus}"]`,
+      );
+
+      dimControl(popup, true, popup);
+      dimClick(popup, popup);
+      popupScroll();
+    });
+  });
+
+  // 팝업 Close
+  popupClose.forEach((el) => {
+    el.addEventListener('click', () => {
+      const hasSmall =
+        el.parentNode.parentNode.classList.contains('popup--small');
+
+      if (hasSmall) {
+        dimControl(el.parentNode.parentNode, true, el.parentNode.parentNode);
+      } else {
+        dimControl(el.parentNode, true, el.parentNode);
+      }
+    });
+  });
+   
+
+  // popupScroll
+  const popupScroll = () => {
+    popupAll.forEach((el) => {
+      const content = el.querySelector('.popup__content');
+      const contentHeight = el.querySelector('.popup__standard').offsetHeight;
+      const standard = getComputedStyle(content).maxHeight.split('px');
+      content.scrollTop = 0
+      if (contentHeight > standard[0]) {
+        content.classList.add('s-scrollbar');
+      } else {
+        content.classList.remove('s-1bar');
+      }
+    });
+  };
+
+  window.addEventListener('resize', () => {
+    isMobile = viewW > 1023 ? false : true;
+    viewW = window.innerWidth;
+    viewH = window.innerHeight;
+    headerH = isMobile ? 72 : 120;
+    popupScroll();
+  });
+
+  setHeaderBg();
+})();

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>    
+    <style>
+        div {
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+        
+        .wrap {
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+        #header{
+            height: 5%;
+        }
+
+        #content1{
+            height: 10%;
+        }
+        #content2{
+            height: 20%;
+            background-color: beige;
+        }
+        #q1, #q2, #q3{
+            width: 33.33%;
+            float: left;
+            background-color: beige;
+        }
+        #content3{
+            height: 35%;
+        }
+        #footer{
+            height: 30%;
+        }
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 16px 16px 12px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+       
+    
+        
+        .search_input{
+            border-radius: 250px;
+            height:50px;
+            width: 1000px;
+            background-color: white;
+            border-color: lightgray;
+            text-align: left;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="header">
+            <div id="header_inner">
+                <a class="header__back">
+                    <img class="header__back-icon header__back--black" src="https://www.i-nara.co.kr/img/icon/icon_left_black.svg" alt="">
+                    <img class="header__back-icon header__back--white" src="/img/icon/icon_left_white.svg" alt="">
+                    <span class="header__back-text">자주 묻는 질문</span>
+                </a>
+            </div>
+        </div>
+        
+        <div id="content1">
+            <h2>자주 묻는 질문</h2>
+            <p>아이들나라에 자주 궁금한 내용을 모았습니다.</p>
+            <div class="search">
+               
+                <div id="search_box">       
+                        <input type="text" class="search_input" placeholder="검색어를 입력해주세요.">                  
+                </div>
+            </div>
+        </div>
+
+        <div id="content2">
+            <h2>자주 묻는 질문 TOP3</h2>
+            <div id="q1">
+              dd  
+            </div>
+            <div id="q2">
+                d
+            </div>
+            <div id="q3">
+                dd
+            </div>
+        </div>
+
+        <div id="content3">
+dddd
+        </div>
+
+        <div id="footer">
+ddd
+        </div>   
+     </div>
+</body>
+</html>
