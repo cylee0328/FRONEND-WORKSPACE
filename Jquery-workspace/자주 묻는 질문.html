@@ -9,7 +9,7 @@
     <style>
         div{
             box-sizing: border-box;
-            border: 1px solid red;
+            /* border: 1px solid red; */
         }
 
         .wrap{
@@ -52,7 +52,13 @@
           height: 100%;
           float: left;
           text-align: center;
-          padding: 10%;
+          padding: 6%;
+        }
+        #down_btn{
+            width: 100px;
+            height: 50px;
+            border-color: lightgray;
+            cursor: pointer;
         }
         #header_3_2{
            width: 50%;
@@ -111,6 +117,8 @@
             border-radius: 40%;
             height: 50px;
             border-color: white;
+            font-weight: 700;
+            font-size: 15px;
         }
         .question{
             background: white;
@@ -122,23 +130,28 @@
             border : 1px solid lightgray;
             cursor: pointer;
             padding: 2%;
+            font-size: 18px;
+            font-weight: 500;
         }
         #answer{
             border : 1px solid lightgray;
             background-color: rgb(236, 234, 234);
             width: 1400px;
             height: 100px;
-            margin-top: 5px;
+            margin-top: 10px;
             border-radius: 10px;
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
             display: none;
+            
         }
         .q_btn{
             cursor: pointer;
+            background-color: white;
+            border-color: lightgray;
+            border-radius: 10px;
         }
         
-     
         #footer{
             height: 25%;
             background-color: rgb(236, 234, 240);
@@ -200,6 +213,7 @@
             border-radius: 30%;
             border-style: lightgray;
             background-color: white;
+            font-weight: 900;
         }
 
         /* #toggle:checked + .hamburger .top {
@@ -215,6 +229,7 @@
         /* #toggle:checked + .hamburger .bottom {
         transform: scale(0);
         } */
+       
     </style>
 </head>
 <body>
@@ -262,13 +277,20 @@
                 <button class="text_box" style="text-align: left;">1<br><pre></pre>무료체험 상품은 어떻게 이용할 수 있나요?</button>
                 <button class="text_box" style="text-align: left;">2<br>아이들나라 이용권은 정기결제<br> 서비스인가요?</button>
                 <button class="text_box" style="text-align: left;">3<br>아이들나라 이용권을 가입하면<br> 어떤 콘텐츠를 볼 수 있나요?</button>
-                <script>
-                    $(function(){
-                        $(".text_box").click(function(){
-                        $(this).css("background-color","yellow");
-                        });
+                
+                <style>
+                .active{
+                    background-color: yellow;              
+                };
+                </style>
+                <script>  
+                    $(document).ready(function(){
+                    $(".text_box").click(function(){
+                    $(this).toggleClass('active');
                     });
+                });
                 </script>
+              
                 
             </div>
             <div id="content2_2">
@@ -283,7 +305,20 @@
                 <button class="navi">해지/탈퇴</button>
                 <button class="navi">요금제</button>
                 <button class="navi">기타</button>
+                <style>
+                    .active2{
+                        background-color:gray;              
+                    };
+                    </style>
+                    <script>  
+                        $(document).ready(function(){
+                        $(".navi").click(function(){
+                        $(this).toggleClass('active2');
+                        });
+                    });
+                    </script>
                 <br><br>
+              
                 <div class="question"><button class="q_btn">무료체험</button> 무료체험 상품은 어떻게 이용할 수 있나요?</div>
                
                 <p id="answer">
