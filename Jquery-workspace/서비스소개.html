@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 소개</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  
+    <style>
+        div{
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+
+        .wrap{
+            width: 5600px;
+            height: 1700px;
+            margin: auto;
+            background-color: white;
+        }
+
+        .wrap>div{
+            width:100%;
+        }
+
+        #header{
+            height: 15%;
+           
+            position: fixed;
+        }
+        #content1{
+            height:35%;
+            
+            padding: 10% 0% 10% 10%;
+        }
+        
+        #content2{
+            height : 60%;           
+        }
+  
+       
+        #header>div   {height:100%; float:left;}
+
+        #header_1{
+            width:20%; 
+            padding: 2%;
+            font-size: 30px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        #header_2{
+            width:65%;
+        }
+        #header_3{
+            width:15%;
+        }
+        #header_3_1{
+          width: 50%;
+          height: 100%; 
+          float: left;
+          text-align: center;
+          padding: 6%;
+        }
+        #down_btn{
+            width: 150px;
+            height: 60px;
+            border-color: lightgray;
+            cursor: pointer;
+            padding: 0% 1% ;
+            border-radius: 30%;
+            background-color: white;
+            font-weight: 900;
+            font-size: 20px;
+        }
+        .hamburger {
+        height: 45px;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+        cursor: pointer;
+        }
+
+        .hamburger div {
+        background-color: #000;
+        position: relative;
+        width: 40px;
+        height: 5px;
+        transition: all 0.2s ease-in-out;
+        border-radius: 35px;
+        }
+
+        #toggle {
+        display: none;
+        }
+        #header_3_2{
+           width: 50%;
+           height: 100%;
+           float: left;
+           padding: 10%;
+        }
+     
+        #footer{
+            height: 30%;
+            background-color: rgb(236, 234, 240);
+            
+        }
+        #footer_1{
+            height: 50%;
+            width: 100%;  
+            
+        }
+        #footer_1_1{
+            width: 70%;
+            height: 100%;
+            float: left;
+            font-size: 20px;
+            padding: 1%;
+        }
+        #footer_1_2{
+            width: 30%;
+            height: 100%;
+            float: left;
+            text-align: right;  
+            padding: 1% 
+                     
+        }
+       
+        #footer_2{
+            height: 50%;
+            width: 100%;
+            float: left;
+            padding: 1%;
+        }
+        #p3{
+            text-align: right;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="header">
+            <div id="header_1">
+                <a class="header__back">
+                    <img class="header__back-icon header__back--black" src="https://www.i-nara.co.kr/img/icon/icon_left_black.svg" alt="">
+                    <img class="header__back-icon header__back--white" src="/img/icon/icon_left_white.svg" alt="">
+                    <span class="header__back-text">서비스 소개</span>
+                </a>
+            </div>
+            <div id="header_2"></div>
+            
+            <div id="header_3">
+                <div id="header_3_1">
+                <button id="down_btn">앱 다운로드</button>
+                </div>
+                
+                <div id="header_3_2">
+                    <input id="toggle" type="checkbox" />
+                        <label class="hamburger" for="toggle">
+                            <div class="top"></div>
+                            <div class="middle"></div>
+                            <div class="bottom"></div>
+                        </label>
+                 </div>
+            </div>
+        </div>
+        
+        <div id="content1">
+            <h1 style="font-size: 65px;">우리 아이에게 <br>딱 맞는 콘텐츠를 콕 집어주니까</h1>
+            <h3 style="font-size: 30px; font-weight: 400;">아이의 성향을 128가지 유형으로 분석해<br>5만여 편의 콘텐츠 중 필요한 콘텐츠를 추천해 줘요</h3>
+        </div>
+        
+        <div id="content2">
+            <div class="video"></div>
+            <div class="video"></div>
+            <div class="video"></div>
+            <div class="video"></div>
+            <div class="video"></div>
+            <div class="video"></div>
+            <div class="video"></div>
+        </div>
+        
+        <div id="footer">
+            <div id="footer_1">  
+                <div id="footer_1_1"><br>
+                    <a href="" style="text-decoration-line: none; color: black;">이벤트</a><br>
+                    <a href="" style="text-decoration-line: none; color: black;">서비스 소개</a><br>
+                    <a href="" style="text-decoration-line: none; color: black;">이용권 안내</a><br>
+                    <a href="" style="text-decoration-line: none; color: black;">공지사항</a><br>
+                    <a href=".question./자주 묻는 질문.html" style="text-decoration-line: none; color: black;">자주 묻는 질문</a>
+                </div>       
+                
+                <div id="footer_1_2"><br>
+                    <button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_instagram.svg" style="width: 50px;"></button>
+                    <button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_youtube.svg" style="width: 50px;"></button>
+                    <button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_cafe.svg" style="width: 50px;"></button>
+                    
+                </div>
+               
+            </div>
+            
+            <div id="footer_2">
+               <div id="footer_2_1">
+                    <a href="" style="text-decoration-line: none; color: black;">이용약관</a> 
+                    <a href="" style="text-decoration-line: none; color: black;">개인정보처리방침</a> 
+               </div>
+            
+               <div id="footer_2_2">
+                <p id="p1">
+                    (주)엘지유플러스 | 대표이사 황현식 | 주소 : 서울특별시 용산구 한강대로 32 | 사업자등록번호 : 220-81-39938
+                </p>
+                <p id="p2">
+                    고객센터 1600-1002
+                </p>
+                <p id="p3">
+                    Copyright ⓒ LG Uplus Corp. All Rights Reserved.
+                </p>
+               </div>           
+            </div>          
+        </div>
+    </div>
+</body>
+</html>
