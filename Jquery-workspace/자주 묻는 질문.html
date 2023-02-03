@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자주 묻는 질문</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <style>
         div{
             box-sizing: border-box;
@@ -26,7 +29,7 @@
             height: 15%;
             position: fixed;
             background-color: white;
-            margin-top: 0%;
+            margin-top: -1%;
         }
         #content1{
             height:30%;
@@ -45,6 +48,13 @@
             padding: 3%;
             font-size: 29px;
             font-weight: 900;
+            cursor: pointer;
+        }
+        #back_btn{
+            font-size: 18px;
+            font-weight: 900;
+            background-color: white;
+            border: none;
             cursor: pointer;
         }
         #header_2{
@@ -74,9 +84,7 @@
      
         #icon {
             display: none;
-
         }
-
 
         #icon+label {
             position: relative;
@@ -128,13 +136,13 @@
 
         #icon+label+#hamburger {
             position: fixed; 
-            width: 800px;
+            width: 500px;
             height: 100%;
             background-color: white;
-            top: 50px;
-            padding: 60px 25px 25px 25px;
+            top: 0px;
+            padding: 2% 25px 25px 25px;
             box-sizing: border-box;
-            right: -820px;
+            right: -500px;
             transition: all 0.5s;
         }
 
@@ -152,7 +160,7 @@
 
         #headerMenu {
             font-size: xx-large;
-            margin-top: 80px;
+            margin-top: 100px;
         }
 
         #Menu {
@@ -162,6 +170,10 @@
 
         #categryfont {
             text-decoration-line: none ;
+        }
+
+        .img{
+            margin: 90% 0% 0% 0%;
         }
 
         #header_3_2{
@@ -176,7 +188,7 @@
         #content1_1{  
             height:70%; 
             width: 100%;
-            padding: 10% 1% 5% 5%;
+            padding: 10% 1% 5% 15%;
         }
         #content1_2{ 
             height:30%;
@@ -190,19 +202,19 @@
             border-radius: 250px;
             height:50px;
             width: 1450px;
-            font-size: 25px;
+            font-size: 15px;
             background-color: white;
             border-color: lightgray;
             text-align: left;
-            margin-left: 5%;
-            padding: 1%;
+            margin-left: 15%;
+            padding: 0%;
         }
         
         #content2_1{ 
             height:35%;
             width: 100%;
             background-color: rgba(255, 255, 0, 0.247);
-            padding: 1% 1% 10% 5%;
+            padding: 1% 1% 10% 15%;
         }
        
         .text_box{
@@ -219,7 +231,7 @@
         #content2_2{ 
              height:65%; 
              width:100%;    
-             padding: 1% 1% 10% 5%;
+             padding: 1% 1% 10% 15%;
         }
         .navi{
             cursor: pointer;
@@ -305,9 +317,11 @@
         <div id="header">
             <div id="header_1">
                 <a class="header__back">
-                    <img class="header__back-icon header__back--black" src="https://www.i-nara.co.kr/img/icon/icon_left_black.svg" alt="">
-                    <img class="header__back-icon header__back--white" src="/img/icon/icon_left_white.svg" alt="">
-                    <span class="header__back-text">자주 묻는 질문</span>
+                    <button id= back_btn value="back" onclick="history.go(-1)">
+                        <img class="header__back-icon header__back--black" src="https://www.i-nara.co.kr/img/icon/icon_left_black.svg" alt="">
+                        <img class="header__back-icon header__back--white" src="/img/icon/icon_left_white.svg" alt="">
+                        <span class="header__back-text">자주 묻는 질문</span>
+                    </button>
                 </a>
             </div>
             <div id="header_2"></div>
@@ -331,17 +345,17 @@
                                 홈 바로가기
                                 </a></li>
                                         
-                                <li id="Menu"><a href="" id="categryfont">이벤트</a></li>		
+                                <!-- <li id="Menu"><a href="" id="categryfont">이벤트</a></li>		
 
-                                <li id="Menu"><a href="" id="categryfont">
+                                <li id="Menu"><a href=" " id="categryfont">
                                 서비스 소개
-                                </a></li>
+                                </a></li> -->
 
                                 <li id="Menu"><a href="" id="categryfont">
                                 이용권 안내
                                 </a></li>
 
-                                <li id="Menu"><a href="" id="categryfont">공지사항</a></li>
+                                <li id="Menu"><a href="공지사항.html" id="categryfont">공지사항</a></li>
 
                                 <li id="Menu"><a href="자주 묻는 질문.html"  id="categryfont">자주 묻는 질문</a></li>
 
@@ -350,10 +364,8 @@
                                     <a href="https://www.youtube.com/channel/UCNpn5wSQjDXI57cgnRhudXw"><button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_youtube.svg" style="width: 50px;"></button></a>
                                     <a href="https://cafe.naver.com/uplusmom"><button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_cafe.svg" style="width: 50px;"></button></a>                 
                                 </li>
-						    </ul>
-                            
-					    </div>
-                        
+						    </ul>                           
+					    </div>                      
                     </div>
                 </div>
             </div>
@@ -362,7 +374,7 @@
         
         <div id="content1">
             <div id="content1_1">
-                <h1 style="font-size: 60px;">자주 묻는 질문</h1>
+                <h1 style="font-size: 60px; font-family: 'Jua', sans-serif;">자주 묻는 질문</h1>
                 <h2 style=" font-size : 30px; font-weight: 400;">아이들나라에 자주 궁금한 내용을 모았습니다.</h2>
             </div>
             <div id="content1_2">
@@ -489,9 +501,9 @@
                 </div>       
                 
                 <div id="footer_1_2"><br>
-                    <a href="https://www.instagram.com/i.nara.play/"><button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_instagram.svg" style="width: 50px;"></button></a>
-                    <a href="https://www.youtube.com/channel/UCNpn5wSQjDXI57cgnRhudXw"><button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_youtube.svg" style="width: 50px;"></button></a>
-                    <a href="https://cafe.naver.com/uplusmom"><button class="img"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_cafe.svg" style="width: 50px;"></button></a>
+                    <a href="https://www.instagram.com/i.nara.play/"><button class="img_1"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_instagram.svg" style="width: 50px;"></button></a>
+                    <a href="https://www.youtube.com/channel/UCNpn5wSQjDXI57cgnRhudXw"><button class="img_1"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_youtube.svg" style="width: 50px;"></button></a>
+                    <a href="https://cafe.naver.com/uplusmom"><button class="img_1"><img src="https://www.i-nara.co.kr/img/icon/icon_sns_cafe.svg" style="width: 50px;"></button></a>
                     
                 </div>
                
